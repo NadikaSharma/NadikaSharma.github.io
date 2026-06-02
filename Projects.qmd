@@ -1,0 +1,32 @@
+---
+title: "Projects"
+---
+
+## Class Projects
+
+### 📊 SQL Analysis
+*[1–2 sentences: what dataset did you use, what question were you answering?]*
+
+- **Tools:** SQL, R
+- **Skills:** Data querying, filtering, joins, aggregation
+-  ← replace # with your link
+
+---
+
+### 📝 Text Analysis
+*[1–2 sentences: what text data did you analyze, what did you find?]*
+
+- **Tools:** R (tidytext, ggplot2)
+- **Skills:** Sentiment analysis, tokenization, word frequency
+-  ← replace # with your link
+
+---
+
+## Beyond-Class Project
+
+### 🔍 [Job Across US]
+*[1–2 sentences: what is it, what problem does it solve?]*
+
+- **Tools:** [e.g., R, Python, Tableau — whatever you used]
+- **Status:** Completed
+-  ← replace # with your link
