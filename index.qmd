@@ -10,22 +10,24 @@ page-layout: full
   </div>
   <div class="hero-text">
     <h1>Nadika Sharma</h1>
-    <p class="hero-tagline">Data Science Student · Storyteller with Data</p>
+    <p class="hero-tagline">Economics & Business Analytics · Lawrence University '26</p>
     <p>
-      Hi, I'm Nadika! I'm a data science student with a passion for turning messy, 
-      real-world data into meaningful insights. I love working at the intersection 
-      of <strong>statistics, visualization, and storytelling</strong> — finding the 
-      narrative hiding in numbers. Browse my projects below or 
-      <a href="resume.qmd">view my resume</a> to learn more about my work.
+      Hi, I'm Nadika! I'm an Economics and Business Analytics major with a minor 
+      in Data Science at Lawrence University. I'm passionate about making data 
+      feel <strong>less intimidating and more meaningful</strong> — whether that's 
+      through clean visualizations, thoughtful analysis, or simply helping others 
+      see that data doesn't have to be scary. When I'm not working with data, you 
+      can find me in my role as a <strong>Career Peer Educator</strong>, helping 
+      fellow students navigate their professional journeys.
     </p>
     <div class="social-links">
-      <a href="https://linkedin.com/in/nadikasharma" target="_blank">
+      <a href="https://www.linkedin.com/in/nadikasharma" target="_blank">
         <i class="bi bi-linkedin"></i> LinkedIn
       </a>
       <a href="https://github.com/nadikasharma" target="_blank">
         <i class="bi bi-github"></i> GitHub
       </a>
-      <a href="mailto:sharmanadka@gmail.com">
+      <a href="mailto:sharmanadika@gmail.com">
         <i class="bi bi-envelope"></i> Email
       </a>
     </div>
@@ -36,22 +38,22 @@ page-layout: full
   <div class="warm-divider"></div>
   <h2>A little more about me</h2>
   <p>
-    I'm currently studying data science and enjoy exploring questions in 
-    <strong>public health, environmental data, and social equity</strong>. 
-    Outside of coursework, I enjoy hiking, cooking, and reading everything 
-    from literary fiction to statistics textbooks. I'm always looking for 
-    opportunities to apply data skills to problems that matter.
+    I grew up in <strong>Kathmandu, Nepal</strong> and have carried a love for 
+    exploration — of places, flavors, and cultures ever since. I'm an avid 
+    traveler and I love being around the ocean and anything water related. 
+    One of my proudest adventures? <strong>Snorkelling and swimming in the Great 
+    Barrier Reef in Australia</strong> — an experience I'll never forget.
   </p>
   <p>
-    This website is my living portfolio — updated throughout the term with 
-    class projects, side projects, and anything else I'm learning. 
-    Take a look around!
+    When I'm home, I love <strong>cooking and trying new cuisines</strong>, and 
+    there's nothing I enjoy more than hosting friends and family for a good dinner. 
+    Food, for me, is another way of bringing people together. I also love to sing — 
+    it's my quiet creative outlet away from spreadsheets and datasets.
+  </p>
+  <p>
+    Oh, and here's a fun fact about me — I'm a <strong>leapling</strong> 🐸 
+    Born on February 29th, which means I only get to celebrate my actual birthday 
+    once every four years!
   </p>
 </div>
 ```
-
-**Things to update before using it:**
-- Replace `sharma.nadika@example.com` with your real email
-- Replace `nadikasharma` in the LinkedIn and GitHub links with your actual usernames
-- Update the bio paragraph to reflect your real interests and focus areas
-- Make sure your photo is saved as `images/profile.jpg` in the same folder
