@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Me",
+    "section": "",
+    "text": "[A bit more about you — hometown, background, what drew you to data science.]"
+  },
+  {
+    "objectID": "about.html#background",
+    "href": "about.html#background",
+    "title": "About Me",
+    "section": "",
+    "text": "[A bit more about you — hometown, background, what drew you to data science.]"
+  },
+  {
+    "objectID": "about.html#interests",
+    "href": "about.html#interests",
+    "title": "About Me",
+    "section": "Interests",
+    "text": "Interests\n\n📚 [Cooking]\n🎵 [Travelling]\n🏃 [Singing]"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About Me",
+    "section": "Education",
+    "text": "Education\n[Economics and Business Analytics Major, Data Science Minor] — [Lawrence University], Expected [2026]"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Your Name",
+    "section": "",
+    "text": "I’m a data science student at [Your University], passionate about [your interests — e.g., machine learning, data visualization, public health data].\nI’m currently studying [your program] and building skills in R, SQL, and data storytelling.\n\n\n\n💼 LinkedIn\n🐙 GitHub"
+  },
+  {
+    "objectID": "index.html#hi-im-your-name",
+    "href": "index.html#hi-im-your-name",
+    "title": "Your Name",
+    "section": "",
+    "text": "I’m a data science student at [Your University], passionate about [your interests — e.g., machine learning, data visualization, public health data].\nI’m currently studying [your program] and building skills in R, SQL, and data storytelling.\n\n\n\n💼 LinkedIn\n🐙 GitHub"
+  },
+  {
+    "objectID": "Projects.html",
+    "href": "Projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "[1–2 sentences: what dataset did you use, what question were you answering?]\n\nTools: SQL, R\nSkills: Data querying, filtering, joins, aggregation\nView Project ← replace # with your link\n\n\n\n\n\n[1–2 sentences: what text data did you analyze, what did you find?]\n\nTools: R (tidytext, ggplot2)\nSkills: Sentiment analysis, tokenization, word frequency\nView Project ← replace # with your link"
+  },
+  {
+    "objectID": "Projects.html#class-projects",
+    "href": "Projects.html#class-projects",
+    "title": "Projects",
+    "section": "",
+    "text": "[1–2 sentences: what dataset did you use, what question were you answering?]\n\nTools: SQL, R\nSkills: Data querying, filtering, joins, aggregation\nView Project ← replace # with your link\n\n\n\n\n\n[1–2 sentences: what text data did you analyze, what did you find?]\n\nTools: R (tidytext, ggplot2)\nSkills: Sentiment analysis, tokenization, word frequency\nView Project ← replace # with your link"
+  },
+  {
+    "objectID": "Projects.html#beyond-class-project",
+    "href": "Projects.html#beyond-class-project",
+    "title": "Projects",
+    "section": "Beyond-Class Project",
+    "text": "Beyond-Class Project\n\n🔍 [Job Across US]\n[1–2 sentences: what is it, what problem does it solve?]\n\nTools: [e.g., R, Python, Tableau — whatever you used]\nStatus: Completed\nView Project ← replace # with your link"
+  }
+]

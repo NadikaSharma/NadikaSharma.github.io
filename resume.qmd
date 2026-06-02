@@ -1,0 +1,132 @@
+---
+title: ""
+page-layout: full
+---
+
+```{=html}
+<div class="resume-page">
+  <div class="warm-divider"></div>
+  <h1>Nadika Sharma</h1>
+  <p style="color:#6b4c35; font-family:'DM Mono',monospace; font-size:0.88rem; margin-bottom:0.3rem;">
+    📍 Appleton, WI &nbsp;·&nbsp; 920-378-7926 &nbsp;·&nbsp;
+    <a href="mailto:sharmanadika@gmail.com">sharmanadika@gmail.com</a> &nbsp;·&nbsp;
+    <a href="https://linkedin.com/in/nadikasharma" target="_blank">LinkedIn</a>
+  </p>
+
+  <!-- EDUCATION -->
+  <div class="resume-section">
+    <h2>Education</h2>
+    <div class="resume-entry">
+      <div>
+        <div class="resume-entry-title">Bachelor of Arts</div>
+        <div class="resume-entry-org">Lawrence University, Appleton, WI</div>
+        <ul>
+          <li>Majors: Economics & Business Analytics &nbsp;·&nbsp; Minor: Data Science</li>
+          <li>GPA: 3.74 &nbsp;·&nbsp; Dean's List (2022–2025)</li>
+        </ul>
+      </div>
+      <div class="resume-entry-date">June 2026</div>
+    </div>
+  </div>
+
+  <!-- WORK EXPERIENCE -->
+  <div class="resume-section">
+    <h2>Work Experience</h2>
+
+    <div class="resume-entry">
+      <div>
+        <div class="resume-entry-title">Career Peer Educator</div>
+        <div class="resume-entry-org">Lawrence University Career Center · Appleton, WI</div>
+        <ul>
+          <li>Provide client-facing career advising by reviewing resumes and cover letters, supporting job and internship applications, and guiding students through career platforms and tools</li>
+          <li>Support and participate in career workshops, events, and newsletter interviews, contributing to standardized resources and documentation used by the Career Center</li>
+          <li>Collaborate with cross-functional campus teams to manage student requests, coordinate initiatives, and support scalable process improvements</li>
+        </ul>
+      </div>
+      <div class="resume-entry-date">Jan 2024 – Present</div>
+    </div>
+
+    <div class="resume-entry">
+      <div>
+        <div class="resume-entry-title">Data Administrator Intern</div>
+        <div class="resume-entry-org">Legal Action of Wisconsin · Milwaukee, WI</div>
+        <ul>
+          <li>Designed and implemented interactive Power BI dashboards using Zoom call data to monitor missed call rates and operational KPIs, enabling stakeholders to identify inefficiencies</li>
+          <li>Designed and maintained ETL pipelines to extract, transform, and load data, improving data quality, system reliability, and decision-making</li>
+          <li>Created automated workflows across LegalServer, Excel, Power Automate, and Outlook to streamline volunteer tracking and enhance process efficiency</li>
+          <li>Provided issue support and troubleshooting for data, reporting, and system-related issues across multiple departments</li>
+        </ul>
+      </div>
+      <div class="resume-entry-date">Jun 2025 – Aug 2025</div>
+    </div>
+
+    <div class="resume-entry">
+      <div>
+        <div class="resume-entry-title">Data Entry and Analysis Intern</div>
+        <div class="resume-entry-org">Nabil Bank</div>
+        <ul>
+          <li>Conducted trend analysis and forecasting on monthly reports to facilitate operational planning and performance monitoring</li>
+          <li>Assisted with account setup, transfers, and service requests while maintaining data accuracy and a smooth client experience</li>
+        </ul>
+      </div>
+      <div class="resume-entry-date">May 2023 – Jul 2023</div>
+    </div>
+  </div>
+
+  <!-- RELATED EXPERIENCE -->
+  <div class="resume-section">
+    <h2>Related Experience</h2>
+    <div class="resume-entry">
+      <div>
+        <div class="resume-entry-title">Branding Strategy Analyst Extern</div>
+        <div class="resume-entry-org">Beats by Dre</div>
+        <ul>
+          <li>Analyzed functional descriptions and technical research materials, collecting and evaluating primary and secondary data to assess Gen Z preferences for over-ear headphones and support strategic recommendations</li>
+        </ul>
+      </div>
+      <div class="resume-entry-date">Apr 2024 – May 2024</div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="resume-section">
+    <h2>Technical Skills</h2>
+    <p style="color:#6b4c35; font-size:0.9rem; margin-bottom:0.6rem;"><strong>Tools & Technologies</strong></p>
+    <div class="skills-grid">
+      <span class="skill-pill">Power BI</span>
+      <span class="skill-pill">SQL</span>
+      <span class="skill-pill">Excel (Pivot Tables, VBA)</span>
+      <span class="skill-pill">ETL Pipelines</span>
+      <span class="skill-pill">Power Automate</span>
+      <span class="skill-pill">LegalServer</span>
+      <span class="skill-pill">R</span>
+      <span class="skill-pill">Python</span>
+    </div>
+    <p style="color:#6b4c35; font-size:0.9rem; margin:1rem 0 0.6rem 0;"><strong>Methods & Competencies</strong></p>
+    <div class="skills-grid">
+      <span class="skill-pill">Data Analysis</span>
+      <span class="skill-pill">Dashboarding</span>
+      <span class="skill-pill">Workflow Automation</span>
+      <span class="skill-pill">Process Improvement</span>
+      <span class="skill-pill">Technical Documentation</span>
+      <span class="skill-pill">Cross-Functional Collaboration</span>
+      <span class="skill-pill">Project Management</span>
+      <span class="skill-pill">Troubleshooting</span>
+    </div>
+  </div>
+
+  <!-- DOWNLOAD -->
+  <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid #e8c9a8;">
+    <a href="Nadika_Resume_.pdf"
+       style="font-family:'DM Mono',monospace; font-size:0.85rem; padding:0.5rem 1.2rem;
+              border:1.5px solid #b85c38; border-radius:4px; color:#b85c38;
+              text-decoration:none; transition:background 0.2s, color 0.2s;"
+       onmouseover="this.style.background='#b85c38';this.style.color='white'"
+       onmouseout="this.style.background='transparent';this.style.color='#b85c38'">
+      ↓ Download PDF Resume
+    </a>
+  </div>
+
+</div>
+```
+

@@ -1,5 +1,14 @@
 ---
-title: "About"
+title: "About Me"
 ---
 
-About this site
+## Background
+[A bit more about you — hometown, background, what drew you to data science.]
+
+## Interests
+- 📚 [Cooking]
+- 🎵 [Travelling]
+- 🏃 [Singing]
+
+## Education
+**[Economics and Business Analytics Major, Data Science Minor]** — [Lawrence University], Expected [2026]

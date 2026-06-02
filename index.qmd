@@ -1,7 +1,57 @@
 ---
-title: "project"
+title: ""
+page-layout: full
 ---
 
-This is a Quarto website.
+```{=html}
+<div class="hero-section">
+  <div class="hero-photo">
+    <img src="images/profile.jpg" alt="Nadika Sharma" />
+  </div>
+  <div class="hero-text">
+    <h1>Nadika Sharma</h1>
+    <p class="hero-tagline">Data Science Student · Storyteller with Data</p>
+    <p>
+      Hi, I'm Nadika! I'm a data science student with a passion for turning messy, 
+      real-world data into meaningful insights. I love working at the intersection 
+      of <strong>statistics, visualization, and storytelling</strong> — finding the 
+      narrative hiding in numbers. Browse my projects below or 
+      <a href="resume.qmd">view my resume</a> to learn more about my work.
+    </p>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/nadikasharma" target="_blank">
+        <i class="bi bi-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://github.com/nadikasharma" target="_blank">
+        <i class="bi bi-github"></i> GitHub
+      </a>
+      <a href="mailto:sharmanadka@gmail.com">
+        <i class="bi bi-envelope"></i> Email
+      </a>
+    </div>
+  </div>
+</div>
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+<div class="home-about">
+  <div class="warm-divider"></div>
+  <h2>A little more about me</h2>
+  <p>
+    I'm currently studying data science and enjoy exploring questions in 
+    <strong>public health, environmental data, and social equity</strong>. 
+    Outside of coursework, I enjoy hiking, cooking, and reading everything 
+    from literary fiction to statistics textbooks. I'm always looking for 
+    opportunities to apply data skills to problems that matter.
+  </p>
+  <p>
+    This website is my living portfolio — updated throughout the term with 
+    class projects, side projects, and anything else I'm learning. 
+    Take a look around!
+  </p>
+</div>
+```
+
+**Things to update before using it:**
+- Replace `sharma.nadika@example.com` with your real email
+- Replace `nadikasharma` in the LinkedIn and GitHub links with your actual usernames
+- Update the bio paragraph to reflect your real interests and focus areas
+- Make sure your photo is saved as `images/profile.jpg` in the same folder
