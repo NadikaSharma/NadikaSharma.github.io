@@ -1,0 +1,551 @@
+---
+title: "Data Science Job Market Analysis: Salaries, Ratings, and Skills"
+format: html
+author: "Group Members: Nadika Sharma and Sabin Ku Shah"
+execute: 
+  echo: false
+  warning: false
+  message: false
+---
+
+## Introduction
+
+Ever wonder why one data science job sounds completely different from another, even when the titles are similar? Some emphasize coding, others focus on analytics or AI, and salaries and company ratings are all over the place. Behind these listings are patterns that reveal what skills and qualities employers really value, and we decided to explore them.
+
+By diving into more than seven hundred real world job postings, we cleaned and standardized salaries using regular expressions, measured the tone of descriptions with sentiment analysis, broke the text into individual words through tokenization, and highlighted the most distinctive terms for each role using TF-IDF. The result is a clear, data-driven look at how salaries, language, and skills differ across data science positions, perfect for job seekers, recruiters, or anyone curious about the hidden patterns in the tech job market.
+
+```{r}
+# Load all required packages for the analysis
+library(tidyverse)
+library(stringr)
+library(ggplot2)
+library(scales)
+library(readr)
+library(tidytext)
+library(textdata)
+library(widyr)
+library(igraph)
+library(ggraph)
+```
+
+```{r}
+# Read in the raw jobs dataset from CSV
+jobs <- read.csv("jobs_dataset.csv")
+```
+
+## Data Background
+
+The analysis in this project is based on a public dataset sourced from Kaggle titled "700+ Jobs Data of AI and Data Fields 2025", compiled by Prince Khunt. The dataset contains 735 real world job postings across a variety of AI and data related roles collected from U.S. based listings, offering a current snapshot of the evolving data science and artificial intelligence job market in 2025.
+
+The posting includes information such as company name, company rating, job title, location, salary, employment type, and full job description text. Because the data was scraped directly from online job boards, the raw dataset reflects the messiness of real world hiring data, salaries appear in multiple formats (hourly and yearly), some listings contain missing values, and job titles often overlap despite representing different responsibilities.
+
+This makes the dataset particularly valuable for analysis. Rather than relying on curated survey data or self reported compensation figures, these listings represent how employers are actively describing, pricing, and advertising data-focused roles in the market.
+
+## Cleaning and Standardizing Salary Data with Regular Expressions
+
+One of the biggest challenges in analyzing job market data is that salary information is rarely standardized. Employers list compensation in a wide range of formats—hourly wages, annual salaries, monthly contracts, or salary ranges—and often use inconsistent text formatting. To make meaningful comparisons across roles, the first step in our analysis was to transform these messy salary strings into a consistent yearly salary metric.
+
+We approached this by applying regular expressions (regex) to extract all salary-related numeric values from the raw salary text. After extraction, we separated each salary into a lower bound, upper bound, and salary unit (hourly, daily, monthly, or yearly). Every salary was then converted into a yearly equivalent using standardized assumptions: hourly × 40 × 52, daily × 5 × 52, monthly × 12. For salary ranges, we calculated the midpoint yearly salary as a single representative estimate.
+
+```{r}
+jobs_salary_clean <- jobs |>
+  mutate(
+    salary_original = salary,
+    
+    # Extract all numeric values from the salary string (handles commas and decimals)
+    salary_numbers = str_extract_all(
+      salary,
+      "\\d{1,3}(?:,\\d{3})*(?:\\.\\d+)?|\\d+(?:\\.\\d+)?"
+    ),
+    
+    # First extracted number = lower bound of salary range
+    salary_low_raw = map_dbl(
+      salary_numbers,
+      ~ ifelse(length(.x) >= 1,
+               as.numeric(str_remove_all(.x[1], ",")),
+               NA_real_)
+    ),
+    
+    # Second extracted number = upper bound; if only one number exists, use it for both bounds
+    salary_high_raw = map_dbl(
+      salary_numbers,
+      ~ ifelse(length(.x) >= 2,
+               as.numeric(str_remove_all(.x[2], ",")),
+               ifelse(length(.x) == 1,
+                      as.numeric(str_remove_all(.x[1], ",")),
+                      NA_real_))
+    ),
+    
+    # Detect whether salary is listed as hourly, daily, monthly, or yearly
+    salary_unit = case_when(
+      str_detect(str_to_lower(salary), "\\b(hour|hr)\\b") ~ "hour",
+      str_detect(str_to_lower(salary), "\\b(day|daily)\\b") ~ "day",
+      str_detect(str_to_lower(salary), "\\b(month|monthly)\\b") ~ "month",
+      str_detect(str_to_lower(salary), "\\b(year|annual|annually)\\b") ~ "year",
+      TRUE ~ NA_character_
+    ),
+    
+    # Convert lower bound to yearly salary based on detected unit
+    salary_low_yearly = case_when(
+      salary_unit == "hour"  ~ salary_low_raw * 40 * 52,
+      salary_unit == "day"   ~ salary_low_raw * 5 * 52,
+      salary_unit == "month" ~ salary_low_raw * 12,
+      salary_unit == "year"  ~ salary_low_raw,
+      TRUE ~ NA_real_
+    ),
+    
+    # Convert upper bound to yearly salary using the same unit logic
+    salary_high_yearly = case_when(
+      salary_unit == "hour"  ~ salary_high_raw * 40 * 52,
+      salary_unit == "day"   ~ salary_high_raw * 5 * 52,
+      salary_unit == "month" ~ salary_high_raw * 12,
+      salary_unit == "year"  ~ salary_high_raw,
+      TRUE ~ NA_real_
+    ),
+    
+    # Compute midpoint of the salary range as a single comparable estimate
+    salary_midpoint_yearly = (salary_low_yearly + salary_high_yearly) / 2
+  )
+```
+
+### Salary Bracketing for Comparative Analysis
+
+To better understand how compensation varies across the market, we grouped each posting into one of three salary brackets:
+
+- **Low Salary:** Under $100,000
+- **Middle Salary:** $100,000 – $159,999
+- **High Salary:** $160,000+
+
+```{r}
+# Count how many postings fall into each salary unit category (yearly, hourly, etc.)
+jobs_salary_clean |>
+  count(salary_unit, sort = TRUE)
+```
+
+```{r}
+# Assign each posting to a salary bracket based on its midpoint yearly salary
+jobs_salary_clean <- jobs_salary_clean |>
+  mutate(
+    salary_bracket = case_when(
+      is.na(salary_midpoint_yearly) ~ NA_character_,
+      salary_midpoint_yearly < 100000 ~ "Low salary",
+      salary_midpoint_yearly >= 100000 & salary_midpoint_yearly < 160000 ~ "Middle salary",
+      salary_midpoint_yearly >= 160000 ~ "High salary"
+    ),
+    # Order the factor levels from low to high for consistent plotting
+    salary_bracket = factor(
+      salary_bracket,
+      levels = c("Low salary", "Middle salary", "High salary")
+    )
+  )
+```
+
+```{r}
+# Count how many postings fall into each salary bracket
+jobs_salary_clean |>
+  filter(!is.na(salary_bracket)) |>
+  count(salary_bracket)
+```
+
+### Salary Distribution Insights
+
+The salary distribution reveals several important patterns. The table above shows that **high salary postings are the most common**, followed by middle and then low salary roles — suggesting that top-paying positions dominate this dataset of AI and data-focused jobs. The high salary bracket also shows substantially greater spread and variability, reflecting differences in specialization, seniority, and niche expertise. Finally, outliers within each bracket demonstrate that job title alone is often insufficient to determine market value.
+
+```{r fig.width=9, fig.height=5}
+# Boxplot with jittered points showing yearly salary spread within each bracket
+jobs_salary_clean |>
+  filter(!is.na(salary_midpoint_yearly)) |>
+  ggplot(aes(x = salary_bracket, y = salary_midpoint_yearly, fill = salary_bracket)) +
+  geom_boxplot(outlier.alpha = 0.4, alpha = 0.8) +
+  geom_jitter(
+    aes(color = salary_bracket),
+    width = 0.15,
+    alpha = 0.35,
+    size = 1.5,
+    show.legend = FALSE
+  ) +
+  scale_fill_brewer(palette = "Set2") +
+  scale_color_brewer(palette = "Dark2") +
+  scale_y_continuous(labels = dollar_format()) +
+  labs(
+    title = "Yearly Salary Distribution by Salary Bracket",
+    subtitle = "Hourly, daily, monthly, and yearly salaries were converted into yearly estimates",
+    x = "Salary Bracket",
+    y = "Estimated Yearly Salary"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(face = "bold", size = 14),
+    plot.subtitle = element_text(size = 10),
+    axis.text.x = element_text(angle = 15, hjust = 1)
+  )
+```
+
+## Tokenizing Job Descriptions to Uncover Common Language Patterns
+
+Tokenization breaks each job description into individual words, enabling quantitative analysis of unstructured text. Each posting was assigned a unique ID, then tokenized with `unnest_tokens()`. We removed stop words, purely numeric tokens, and non-alphabetic strings to retain only meaningful terms.
+
+```{r}
+# Tokenize job descriptions: assign IDs, unnest to one word per row,
+# remove stop words, non-alpha strings, and pure numbers
+job_words <- jobs_salary_clean |>
+  filter(!is.na(description)) |>
+  mutate(posting_id = row_number()) |>
+  select(
+    posting_id, company, rating, positionName,
+    description, salary_midpoint_yearly, salary_bracket
+  ) |>
+  unnest_tokens(word, description) |>
+  anti_join(stop_words, by = "word") |>
+  filter(str_detect(word, "[a-z]")) |>
+  filter(!str_detect(word, "^\\d+$"))
+```
+
+### Identifying the Most Frequent Terms in Job Descriptions
+
+```{r}
+# Count word frequency across all postings and keep the top 10 most common terms
+top_words <- job_words |>
+  count(word, sort = TRUE) |>
+  slice_max(n, n = 10)
+
+top_words
+```
+
+```{r}
+# Filter the tokenized data to only rows containing one of the top 10 words
+top_10_words <- top_words |>
+  pull(word)
+
+job_words_top10 <- job_words |>
+  filter(word %in% top_10_words)
+```
+
+```{r}
+# Count how often each pair of top-10 words co-occurs within the same posting
+word_pairs <- job_words_top10 |>
+  pairwise_count(
+    item = word,
+    feature = posting_id,
+    sort = TRUE,
+    upper = FALSE
+  )
+
+# Keep only pairs that co-occur at least 150 times and label connection strength
+word_pairs_filtered <- word_pairs |>
+  filter(n >= 150) |>
+  mutate(
+    connection_strength = case_when(
+      n < 250 ~ "150–249",
+      n < 400 ~ "250–399",
+      n < 550 ~ "400–549",
+      TRUE ~ "550+"
+    ),
+    connection_strength = factor(
+      connection_strength,
+      levels = c("150–249", "250–399", "400–549", "550+")
+    )
+  )
+```
+
+Looking at the most common words, "data" leads the pack, while "experience" highlights the importance of prior skills. Terms like "AI," "learning," and "models" point to machine learning emphasis, and "business" and "team" show that collaboration matters too.
+
+### Network Graph Analysis
+
+The network graph shows how the 10 most common words co-occur across postings. Stronger connections (green) link terms like "experience," "data," and "including," while lighter edges indicate occasional co-occurrence.
+
+```{r fig.width=10, fig.height=7}
+# Build and plot a network graph of word co-occurrences among the top 10 terms;
+# edge color encodes how frequently each pair appears together in the same posting
+set.seed(123)
+
+word_pairs_filtered |>
+  graph_from_data_frame() |>
+  ggraph(layout = "fr") +
+  geom_edge_link(
+    aes(color = connection_strength),
+    alpha = 0.8,
+    linewidth = 1.2
+  ) +
+  geom_node_point(size = 3, color = "black") +
+  geom_node_text(aes(label = name), repel = TRUE, size = 4) +
+  scale_edge_color_manual(
+    values = c(
+      "150–249" = "blue",
+      "250–399" = "pink",
+      "400–549" = "lightblue",
+      "550+"    = "green"
+    )
+  ) +
+  labs(
+    title = "How the 10 Most Common Words Connect in Data Science Job Descriptions",
+    subtitle = "Edge color shows how often two words appear together in the same posting",
+    edge_color = "Co-occurrence Count"
+  ) +
+  theme_void()
+```
+
+## Sentiment Analysis of Job Descriptions under Salaries and Ratings
+
+Using the Bing sentiment lexicon, we matched each tokenized word against a dictionary of positive/negative terms to quantify the emotional tone of each posting, then compared sentiment across salary brackets and company rating groups.
+
+### Grouping by Company Rating
+
+Companies were grouped into four rating tiers: Below 3.5, 3.5–3.9, 4.0–4.4, and 4.5+.
+
+```{r}
+# Create rating groups and filter out postings missing a description or rating
+jobs_rating_groups <- jobs_salary_clean |>
+  filter(!is.na(description), !is.na(rating)) |>
+  mutate(
+    rating_group = case_when(
+      rating < 3.5 ~ "Below 3.5",
+      rating >= 3.5 & rating < 4.0 ~ "3.5–3.9",
+      rating >= 4.0 & rating < 4.5 ~ "4.0–4.4",
+      rating >= 4.5 ~ "4.5+"
+    ),
+    # Order rating groups from lowest to highest for meaningful axis ordering
+    rating_group = factor(
+      rating_group,
+      levels = c("Below 3.5", "3.5–3.9", "4.0–4.4", "4.5+")
+    )
+  )
+```
+
+```{r}
+# Tokenize descriptions for the rating-grouped dataset using the same cleaning steps
+job_words_rating <- jobs_rating_groups |>
+  select(company, rating, rating_group, positionName, description) |>
+  unnest_tokens(word, description) |>
+  anti_join(stop_words, by = "word") |>
+  filter(str_detect(word, "[a-z]")) |>
+  filter(!str_detect(word, "^\\d+$"))
+```
+
+```{r}
+# Load the Bing sentiment lexicon and join it to the rating-grouped word tokens
+bing_words <- get_sentiments("bing")
+
+job_sentiment_rating <- job_words_rating |>
+  inner_join(bing_words, by = "word")
+```
+
+```{r}
+# Count positive vs negative words per rating group and calculate percentage share
+sentiment_by_rating <- job_sentiment_rating |>
+  count(rating_group, sentiment) |>
+  group_by(rating_group) |>
+  mutate(
+    total_sentiment_words = sum(n),
+    percent = n / total_sentiment_words
+  ) |>
+  ungroup()
+```
+
+### Comparing Sentiment Across Salary Brackets
+
+```{r}
+# Join Bing sentiments to the salary-annotated word tokens
+job_sentiment <- job_words |>
+  inner_join(bing_words, by = "word") |>
+  group_by(company, positionName, rating, salary_bracket, salary_midpoint_yearly, sentiment) |>
+  summarise(sentiment_words = n(), .groups = "drop")
+```
+
+```{r}
+# Aggregate sentiment word counts by salary bracket and compute percentage share
+sentiment_by_salary <- job_sentiment |>
+  filter(!is.na(salary_bracket)) |>
+  group_by(salary_bracket, sentiment) |>
+  summarise(
+    sentiment_words = sum(sentiment_words),
+    median_salary = median(salary_midpoint_yearly, na.rm = TRUE),
+    postings = n(),
+    .groups = "drop"
+  ) |>
+  group_by(salary_bracket) |>
+  mutate(
+    total_sentiment_words = sum(sentiment_words),
+    percent = sentiment_words / total_sentiment_words
+  ) |>
+  ungroup()
+```
+
+```{r}
+# Stack salary bracket and rating group sentiment summaries into one combined table
+# for side-by-side heatmap comparison; salary bracket levels are explicitly ordered
+combined_sentiment <- bind_rows(
+  sentiment_by_salary |>
+    mutate(
+      category = factor(
+        as.character(salary_bracket),
+        levels = c("Low salary", "Middle salary", "High salary")
+      ),
+      category_type = "Salary Bracket"
+    ) |>
+    select(category_type, category, sentiment, percent),
+  
+  sentiment_by_rating |>
+    mutate(
+      category = factor(
+        as.character(rating_group),
+        levels = c("Below 3.5", "3.5–3.9", "4.0–4.4", "4.5+")
+      ),
+      category_type = "Company Rating Group"
+    ) |>
+    select(category_type, category, sentiment, percent)
+)
+```
+
+### Heatmap Visualization of Sentiment Intensity
+
+```{r fig.width=10, fig.height=5}
+# Heatmap comparing the proportion of positive vs negative sentiment words
+# across salary brackets and company rating groups; categories are ordered
+# from low to high rather than alphabetically for easier interpretation
+combined_sentiment |>
+  ggplot(aes(x = sentiment, y = category, fill = percent)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = scales::percent(percent, accuracy = 1))) +
+  facet_wrap(~category_type, scales = "free_y") +
+  scale_fill_gradient(low = "pink", high = "red") +
+  labs(
+    title = "Sentiment Intensity Across Salary and Rating Groups",
+    x = "Sentiment",
+    y = NULL,
+    fill = "Percent"
+  ) +
+  theme_minimal()
+```
+
+Across all salary brackets and company rating groups, the language of job postings remains overwhelmingly positive — around 82–84% of sentiment words carry a positive tone. This suggests that employers consistently frame their postings to emphasize opportunity and skills regardless of pay level or company reputation.
+
+## Using TF-IDF to Identify Distinctive Skills by Role Type
+
+TF-IDF highlights words that are important within one group of documents but uncommon across others — revealing the skills that best distinguish one type of data science role from another.
+
+```{r}
+# Build a custom stop word list from company names to prevent employer branding
+# from inflating TF-IDF scores for specific role categories
+company_stop_words <- jobs_salary_clean |>
+  filter(!is.na(company)) |>
+  distinct(company) |>
+  mutate(company = str_to_lower(company)) |>
+  unnest_tokens(word, company) |>
+  distinct(word) |>
+  filter(str_detect(word, "[a-z]"))
+```
+
+```{r}
+# Generic recruiting terms that appear in nearly every posting and add no
+# discriminating power between role types — removed before TF-IDF calculation
+custom_stop_words <- tibble(
+  word = c(
+    "data", "science", "scientist", "job", "role", "company",
+    "team", "work", "experience", "skills", "ability", "including",
+    "required", "requirements", "responsibilities", "position",
+    "candidate", "candidates", "years", "year", "employees",
+    "apply", "equal", "opportunity", "employer", "www", "https",
+    "com", "inc", "llc", "corp", "corporation", "ltd"
+  )
+)
+
+# Combine generic and company-name stop words into one unified list
+all_custom_stop_words <- bind_rows(custom_stop_words, company_stop_words) |>
+  distinct(word)
+```
+
+```{r}
+# Curated vocabulary of domain-relevant professional terms; TF-IDF is restricted
+# to this list so results reflect meaningful technical and business competencies
+professional_terms <- c(
+  "python", "sql", "r", "java", "scala", "spark", "airflow",
+  "tableau", "excel", "sas", "pytorch", "tensorflow", "azure",
+  "aws", "gcp", "snowflake", "databricks",
+  "machine", "learning", "deep", "neural", "modeling", "models",
+  "algorithms", "transformers", "nlp", "llm", "forecasting",
+  "optimization", "classification", "regression", "clustering",
+  "statistics", "statistical", "probability", "bayesian",
+  "hypothesis", "inference", "experimental", "experimentation",
+  "causal", "quantitative", "analysis", "analytics",
+  "pipeline", "pipelines", "etl", "warehouse", "warehousing",
+  "database", "databases", "architecture", "platform",
+  "dashboard", "stakeholders", "stakeholder", "reporting",
+  "visualization", "insights", "strategy", "business",
+  "leadership", "mentoring", "collaboration", "communication",
+  "deployment", "production", "scalable", "ownership", "governance"
+)
+```
+
+```{r}
+# Group job titles into broad functional categories using keyword matching
+jobs_position_clean <- jobs_salary_clean |>
+  filter(!is.na(description)) |>
+  mutate(position_group = case_when(
+    str_detect(positionName, regex("data engineer|etl|pipeline|warehouse", ignore_case = TRUE)) ~ "Data Engineering",
+    str_detect(positionName, regex("ml|machine learning|ai|deep learning|nlp|tensorflow|pytorch", ignore_case = TRUE)) ~ "AI / Machine Learning",
+    str_detect(positionName, regex("analytics|business intelligence|bi|dashboard|insights", ignore_case = TRUE)) ~ "Analytics / BI",
+    str_detect(positionName, regex("statistic|quant|quantitative|regression|bayesian", ignore_case = TRUE)) ~ "Statistics / Quant",
+    str_detect(positionName, regex("lead|senior|manager|director", ignore_case = TRUE)) ~ "Senior / Leadership",
+    TRUE ~ "Other / Mixed"
+  )) |>
+  filter(!is.na(position_group))
+```
+
+```{r}
+# Tokenize descriptions by position group, apply all stop word filters,
+# restrict to professional terms, then compute TF-IDF scores
+position_tfidf <- jobs_position_clean |>
+  select(position_group, description) |>
+  unnest_tokens(word, description) |>
+  anti_join(stop_words, by = "word") |>
+  anti_join(all_custom_stop_words, by = "word") |>
+  filter(str_detect(word, "[a-z]")) |>
+  filter(!str_detect(word, "^\\d+$")) |>
+  filter(word %in% professional_terms) |>
+  count(position_group, word, sort = TRUE) |>
+  bind_tf_idf(word, position_group, n) |>
+  arrange(desc(tf_idf))
+
+# Extract the top 8 most distinctive terms per position group
+top_position_tfidf <- position_tfidf |>
+  group_by(position_group) |>
+  slice_max(tf_idf, n = 8) |>
+  ungroup()
+```
+
+### Visualizing Distinctive Terms by Position Type
+
+```{r fig.width=14, fig.height=9, out.width="100%"}
+# Faceted bar chart showing the top TF-IDF terms for each position category;
+# reorder_within ensures bars are sorted by TF-IDF score within each facet
+top_position_tfidf |>
+  ggplot(aes(
+    x = reorder_within(word, tf_idf, position_group),
+    y = tf_idf,
+    fill = position_group
+  )) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ position_group, scales = "free_y") +
+  coord_flip() +
+  scale_x_reordered() +
+  labs(
+    title = "What Terms Distinguish Different Data Science Position Types?",
+    subtitle = "TF-IDF highlights the most distinctive professional terms in each position category",
+    x = "Most Distinctive Terms",
+    y = "TF-IDF"
+  ) +
+  theme_minimal()
+```
+
+AI / Machine Learning roles emphasize tools like Azure and LLM; Data Engineering highlights warehousing and pipelines; Statistics / Quant is dominated by statistical rigor terms; Analytics / BI focuses on dashboards and optimization; Leadership blends technical and managerial vocabulary.
+
+## Conclusion
+
+Analyzing hundreds of data science job postings has revealed clear patterns in how employers communicate expectations, priorities, and skills. Across salary brackets and company rating groups, job posting language remains overwhelmingly positive. TF-IDF analysis highlights how different roles prioritize distinct skills: AI/ML positions focus on cloud tools and deep learning, Data Engineering emphasizes infrastructure, Analytics/BI concentrates on dashboards and quantitative analysis, and Statistics/Quant underscores analytical rigor. Whether you are a job seeker, recruiter, or industry observer, this analysis demonstrates how text, sentiment, and term relevance can reveal the nuances that make each data science role unique.
+
+## References
+
+- <https://www.kaggle.com/datasets/princekhunt19/700-jobs-data-of-ai-and-data-fields-2025>
+- <https://www.r-bloggers.com/2022/07/network-graphs-in-r/>
