@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>project_2_template-(2 – Nadika Sharma</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-c82218b12ac0f327fa8bd7d074ce2147.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Nadika Sharma</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resume.html"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../recipes.html"> 
+<span class="menu-text">My Recipes</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/nadikasharma"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/nadikasharma"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:sharmanadika@gmail.com"> <i class="bi bi-envelope" role="img" aria-label="Email">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<hr>
+<p>title: “Comparative Analysis of Global Health Financing and Spending Over Time” format: html author: “Group Members: Sabin Ku Shah &amp; Nadika Sharma” —</p>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">—————————————————————————</h3>
+</section>
+<section id="accessing-data" class="level1">
+<h1>Accessing data</h1>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">—————————————————————————</h3>
+</section>
+</section>
+<section id="designing-the-database" class="level1">
+<h1>Designing the database</h1>
+<p>Relational Schema:</p>
+<pre><code>                     country
+         ---------------------------------
+         iso3_code (PRIMARY KEY)
+         country_name
+                   |
+                   |
+     -----------------------------------
+     |                 |               |
+     |                 |               |
+health_fact      finance_fact    spending_fact
+
+iso3_code(FK)    iso3_code(FK)   iso3_code(FK)
+year             year            year
+indicator_code   indicator_code  indicator_code
+expenditure_type financing_scheme spending_purpose
+value            value           value
+unit             unit            unit</code></pre>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">### ---------------------------------------------------------------------------</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># DATABASE CREATION</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create DuckDB database connection</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------------------</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>con_snl <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  duckdb<span class="sc">::</span><span class="fu">duckdb</span>(),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">dbdir =</span> <span class="st">"health_finances"</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">USE</span> main;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> health_data;</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> finance_data;</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> spending_data;</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> finance_fact;</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> health_fact;</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> spending_fact;</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> country;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- Create Health Data Table</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> health_data (</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    country_name <span class="dt">VARCHAR</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    iso3_code <span class="dt">VARCHAR</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">year</span> <span class="dt">INTEGER</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    indicator_code <span class="dt">VARCHAR</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    expenditure_type <span class="dt">VARCHAR</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">value</span> <span class="dt">DOUBLE</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    unit <span class="dt">VARCHAR</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- Create Finance Data Table</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> finance_data (</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    country_name <span class="dt">VARCHAR</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    iso3_code <span class="dt">VARCHAR</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">year</span> <span class="dt">INTEGER</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    indicator_code <span class="dt">VARCHAR</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    financing_scheme <span class="dt">VARCHAR</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">value</span> <span class="dt">DOUBLE</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    unit <span class="dt">VARCHAR</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- Create Spending Data Table</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> spending_data (</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    country_name <span class="dt">VARCHAR</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    iso3_code <span class="dt">VARCHAR</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">year</span> <span class="dt">INTEGER</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    indicator_code <span class="dt">VARCHAR</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    spending_purpose <span class="dt">VARCHAR</span>,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">value</span> <span class="dt">DOUBLE</span>,</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    unit <span class="dt">VARCHAR</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">-- Import CSV Data into Tables</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">COPY</span> health_data</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="st">'health_spending.csv'</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    FORMAT CSV,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">HEADER</span> <span class="kw">TRUE</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    DELIMITER <span class="st">','</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    QUOTE <span class="st">'"'</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">COPY</span> finance_data</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="st">'financing_schemes.csv'</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    FORMAT CSV,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">HEADER</span> <span class="kw">TRUE</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    DELIMITER <span class="st">','</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    QUOTE <span class="st">'"'</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">COPY</span> spending_data</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="st">'spending_purpose.csv'</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    FORMAT CSV,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">HEADER</span> <span class="kw">TRUE</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    DELIMITER <span class="st">','</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    QUOTE <span class="st">'"'</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- DATABASE VERIFICATION</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">-- Confirm tables were created successfully</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>SHOW <span class="kw">TABLES</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>3 records</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">finance_data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">health_data</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">spending_data</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">—————————————————————————</h3>
+</section>
+</section>
+<section id="querying-data-using-sql" class="level1">
+<h1>Querying data using SQL</h1>
+<p>#Analyzes if countries shifted focus toward prevention post-2020 #hc6_che is code for preventive care</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">-- Analyzes if countries shifted focus toward prevention post-2020</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Selecting, and Grouping by using the spending_data table</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    country_name <span class="kw">AS</span> <span class="ot">"Country"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2019</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="kw">AS</span> <span class="ot">"Prevention Spending (2019 - Pre-COVID)"</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2020</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="kw">AS</span> <span class="ot">"Prevention Spending (2020)"</span>,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2021</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="kw">AS</span> <span class="ot">"Prevention Spending (2021)"</span>,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2022</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="kw">AS</span> <span class="ot">"Prevention Spending (2022)"</span>,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ROUND</span>(</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        (</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>            <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2022</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="op">-</span> </span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>            <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2019</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>)</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>        ) <span class="op">*</span> <span class="fl">100.0</span> <span class="op">/</span> </span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2019</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>),</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>) <span class="op">||</span> <span class="st">'%'</span> <span class="kw">AS</span> <span class="ot">"Change in Prevention Spending (2019–2022, %)"</span>,</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">CASE</span> </span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">WHEN</span> <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2022</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="op">&gt;</span> </span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>             <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2019</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>)</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">THEN</span> <span class="st">'Increased'</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">ELSE</span> <span class="st">'Decreased'</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">END</span> <span class="kw">AS</span> <span class="ot">"Trend (Post-COVID)"</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> spending_data</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> indicator_code <span class="op">=</span> <span class="st">'hc6_che'</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> country_name</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span> </span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2019</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">AND</span> <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2022</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Displaying records 1 - 10</caption>
+<colgroup>
+<col style="width: 11%">
+<col style="width: 18%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 21%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Country</th>
+<th style="text-align: right;">Prevention Spending (2019 - Pre-COVID)</th>
+<th style="text-align: right;">Prevention Spending (2020)</th>
+<th style="text-align: right;">Prevention Spending (2021)</th>
+<th style="text-align: right;">Prevention Spending (2022)</th>
+<th style="text-align: left;">Change in Prevention Spending (2019–2022, %)</th>
+<th style="text-align: left;">Trend (Post-COVID)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Afghanistan</td>
+<td style="text-align: right;">6.4470809</td>
+<td style="text-align: right;">8.396919</td>
+<td style="text-align: right;">11.187076</td>
+<td style="text-align: right;">6.075573</td>
+<td style="text-align: left;">-5.76%</td>
+<td style="text-align: left;">Decreased</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Armenia</td>
+<td style="text-align: right;">0.7540922</td>
+<td style="text-align: right;">1.196533</td>
+<td style="text-align: right;">1.597447</td>
+<td style="text-align: right;">1.959305</td>
+<td style="text-align: left;">159.82%</td>
+<td style="text-align: left;">Increased</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Australia</td>
+<td style="text-align: right;">1.9833455</td>
+<td style="text-align: right;">3.223149</td>
+<td style="text-align: right;">6.062230</td>
+<td style="text-align: right;">3.060843</td>
+<td style="text-align: left;">54.33%</td>
+<td style="text-align: left;">Increased</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Austria</td>
+<td style="text-align: right;">2.0809915</td>
+<td style="text-align: right;">3.177825</td>
+<td style="text-align: right;">10.435351</td>
+<td style="text-align: right;">7.501497</td>
+<td style="text-align: left;">260.48%</td>
+<td style="text-align: left;">Increased</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Belarus</td>
+<td style="text-align: right;">2.3897221</td>
+<td style="text-align: right;">2.398827</td>
+<td style="text-align: right;">2.852107</td>
+<td style="text-align: right;">2.852027</td>
+<td style="text-align: left;">19.35%</td>
+<td style="text-align: left;">Increased</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Belgium</td>
+<td style="text-align: right;">1.5785911</td>
+<td style="text-align: right;">1.903593</td>
+<td style="text-align: right;">2.910215</td>
+<td style="text-align: right;">2.334341</td>
+<td style="text-align: left;">47.87%</td>
+<td style="text-align: left;">Increased</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bosnia and Herzegovina</td>
+<td style="text-align: right;">1.7683322</td>
+<td style="text-align: right;">1.554672</td>
+<td style="text-align: right;">2.557903</td>
+<td style="text-align: right;">2.274430</td>
+<td style="text-align: left;">28.62%</td>
+<td style="text-align: left;">Increased</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brazil</td>
+<td style="text-align: right;">4.3441896</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">6.115506</td>
+<td style="text-align: left;">40.77%</td>
+<td style="text-align: left;">Increased</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bulgaria</td>
+<td style="text-align: right;">2.9583691</td>
+<td style="text-align: right;">2.818093</td>
+<td style="text-align: right;">3.936116</td>
+<td style="text-align: right;">3.089749</td>
+<td style="text-align: left;">4.44%</td>
+<td style="text-align: left;">Increased</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Burkina Faso</td>
+<td style="text-align: right;">21.4211685</td>
+<td style="text-align: right;">17.798605</td>
+<td style="text-align: right;">21.066445</td>
+<td style="text-align: right;">19.405336</td>
+<td style="text-align: left;">-9.41%</td>
+<td style="text-align: left;">Decreased</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The results show how prevention spending changed across countries before and after COVID-19. Overall, most countries experienced an increase in prevention spending between 2019 and 2022. For example, countries like Armenia and Denmark show significant increases, suggesting a stronger focus on preventive healthcare following the pandemic. In contrast, a few countries, such as Afghanistan and Hungary, show a decrease in spending, indicating that not all countries shifted priorities in the same way. The percentage change column is especially useful because it allows for comparison across countries regardless of their original spending levels.</p>
+<p>#turning into database for visualization:</p>
+<div class="cell" data-output.var="df">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    country_name <span class="kw">AS</span> <span class="ot">"Country"</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2019</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="kw">AS</span> <span class="ot">"Prevention Spending (2019 - Pre-COVID)"</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2020</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="kw">AS</span> <span class="ot">"Prevention Spending (2020)"</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2021</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="kw">AS</span> <span class="ot">"Prevention Spending (2021)"</span>,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2022</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="kw">AS</span> <span class="ot">"Prevention Spending (2022)"</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ROUND</span>(</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        (</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>            <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2022</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="op">-</span> </span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>            <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2019</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        ) <span class="op">*</span> <span class="fl">100.0</span> <span class="op">/</span> </span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2019</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>),</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>) <span class="op">||</span> <span class="st">'%'</span> <span class="kw">AS</span> <span class="ot">"Change in Prevention Spending (2019–2022, %)"</span>,</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">CASE</span> </span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">WHEN</span> <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2022</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="op">&gt;</span> </span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>             <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2019</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>)</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">THEN</span> <span class="st">'Increased'</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">ELSE</span> <span class="st">'Decreased'</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">END</span> <span class="kw">AS</span> <span class="ot">"Trend (Post-COVID)"</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> spending_data</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> indicator_code <span class="op">=</span> <span class="st">'hc6_che'</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> country_name</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="kw">HAVING</span> </span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2019</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">AND</span> <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2022</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="yearly-global-average-out-of-pocket-spending-oops-in-percentage" class="level1">
+<h1>Yearly Global Average Out of Pocket Spending (OOPS) in Percentage:</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">-- Calculating the Yearly Out of Pocket Spending (OOPS) in Percentage</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Selecting, Calculating the average percentage, and Grouping by using the finance_data table</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="dt">year</span>, <span class="fu">AVG</span>(<span class="fu">value</span>) <span class="kw">as</span> avg_oops_percent</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> finance_data</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> indicator_code <span class="op">=</span> <span class="st">'hf3_che'</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="dt">year</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">year</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Displaying records 1 - 10</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">year</th>
+<th style="text-align: right;">avg_oops_percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2000</td>
+<td style="text-align: right;">36.96590</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2001</td>
+<td style="text-align: right;">36.50042</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2002</td>
+<td style="text-align: right;">36.57948</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2003</td>
+<td style="text-align: right;">36.38516</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2004</td>
+<td style="text-align: right;">35.96072</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2005</td>
+<td style="text-align: right;">35.60327</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2006</td>
+<td style="text-align: right;">35.08353</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2007</td>
+<td style="text-align: right;">34.73488</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2008</td>
+<td style="text-align: right;">34.31119</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2009</td>
+<td style="text-align: right;">33.31413</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The results show a gradual decline in out-of-pocket healthcare spending as a percentage of total health expenditure over time. For example, the average decreases from around 36.9% in 2000 to about 33.3% by 2009. This suggests that, globally, individuals are paying a smaller share of healthcare costs directly out of pocket over time. This trend could indicate improvements in financial protection, such as increased government spending, insurance coverage, or public healthcare access. The data suggests a slow but consistent shift toward reducing the financial burden on individuals for healthcare expenses.</p>
+</section>
+<section id="top-10-countries-with-the-highest-external-health-expenditure-in-2023-countries-dependent-on-external-aid" class="level1">
+<h1>Top 10 countries with the highest external Health expenditure in 2023 (Countries dependent on external aid):</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">-- Obtaining the Top 10 countries with the highest external Health expenditure in 2023</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Selecting country_name, calculating the ext_percentage value for the year 2023, and arranging in descending order</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> country_name, <span class="fu">value</span> <span class="kw">as</span> ext_percent</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> health_data</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> indicator_code <span class="op">=</span> <span class="st">'ext_che'</span> <span class="kw">AND</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2023</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="fu">value</span> <span class="kw">DESC</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">10</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Displaying records 1 - 10</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">country_name</th>
+<th style="text-align: right;">ext_percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Micronesia (Federated States of)</td>
+<td style="text-align: right;">71.46843</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Malawi</td>
+<td style="text-align: right;">65.50471</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">South Sudan</td>
+<td style="text-align: right;">62.29821</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mozambique</td>
+<td style="text-align: right;">57.71071</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Burundi</td>
+<td style="text-align: right;">57.42038</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Somalia</td>
+<td style="text-align: right;">54.40634</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Niue</td>
+<td style="text-align: right;">54.37477</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Zambia</td>
+<td style="text-align: right;">47.90815</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zimbabwe</td>
+<td style="text-align: right;">44.98421</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tonga</td>
+<td style="text-align: right;">44.23783</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The results show that several countries rely heavily on external funding for their healthcare systems. For example, countries like Micronesia, Malawi, and South Sudan have more than half of their health expenditure coming from external sources. This indicates a high level of dependence on international aid and external support. Most of the countries in the top 10 are developing or low-income nations, suggesting that limited domestic resources make them more reliant on foreign funding for healthcare. While external aid can support essential services, high dependence may also indicate vulnerability, as these systems could be affected if external funding decreases.</p>
+</section>
+<section id="comparing-portion-covered-by-government-schemes-in-total-health-spending-in-various-countries-in-2023" class="level1">
+<h1>Comparing portion covered by Government Schemes in total health spending in various countries in 2023:</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">-- Comparing portion covered by Government Schemes in total health spending in various countries in 2023</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> trend_data <span class="kw">AS</span> (</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">--Selecting conutry name--</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        country_name,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">--Using when case to filter values--</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">CASE</span> </span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">WHEN</span> <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2022</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="op">&gt;</span> </span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2019</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">THEN</span> <span class="st">'Increased'</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">WHEN</span> <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2022</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="op">&lt;</span> </span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2019</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>)</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">THEN</span> <span class="st">'Decreased'</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">ELSE</span> <span class="st">'No Change'</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">END</span> <span class="kw">AS</span> trend</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> spending_data</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> indicator_code <span class="op">=</span> <span class="st">'hc6_che'</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> country_name</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">HAVING</span> </span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>        <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2019</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>        <span class="kw">AND</span> <span class="fu">MAX</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2022</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a><span class="co">--Select and Group_by to calculate the percentage covered by government for health spending--</span></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>    trend <span class="kw">AS</span> <span class="ot">"Trend (Post-COVID)"</span>,</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> <span class="ot">"Number of Countries"</span>,</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ROUND</span>(</span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>        <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="op">*</span> <span class="fl">100.0</span> <span class="op">/</span> <span class="fu">SUM</span>(<span class="fu">COUNT</span>(<span class="op">*</span>)) <span class="kw">OVER</span> (), </span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>) <span class="op">||</span> <span class="st">'%'</span> <span class="kw">AS</span> <span class="ot">"Percentage of Countries"</span></span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> trend_data</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> trend;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>2 records</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Trend (Post-COVID)</th>
+<th style="text-align: right;">Number of Countries</th>
+<th style="text-align: left;">Percentage of Countries</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Decreased</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">19.44%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Increased</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: left;">80.56%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The results show that a large majority of countries (about 80.56%) increased their prevention spending after COVID-19, while only around 19.44% experienced a decrease. This indicates a clear global trend toward prioritizing preventive healthcare in response to the pandemic. The countries that showed a decline in prevention spending could be influenced by several factors. Some governments may have shifted their focus toward immediate treatment and recovery (curative care) rather than prevention during the pandemic. Others may have faced economic constraints, limited budgets, or reduced external funding, which affected their ability to invest in preventive measures. Additionally, in some cases, a decline could be due to already high pre-COVID spending levels, making further increases less significant.</p>
+<p>#The share of healthcare spending funded by governments for each country in 2023:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- share of healthcare spending funded by governments for each country in 2023</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    h.country_name, </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    h.<span class="dt">year</span>, </span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ROUND</span>(h.<span class="fu">value</span> <span class="op">/</span> <span class="fl">1000000000.0</span>, <span class="dv">2</span>) <span class="op">||</span> <span class="st">' B'</span> <span class="kw">AS</span> total_che_usd_billion, </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ROUND</span>(f.<span class="fu">value</span> <span class="op">/</span> <span class="fl">1000000000.0</span>, <span class="dv">2</span>) <span class="op">||</span> <span class="st">' B'</span> <span class="kw">AS</span> govt_scheme_usd_billion,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ROUND</span>((f.<span class="fu">value</span> <span class="op">*</span> <span class="fl">100.0</span> <span class="op">/</span> h.<span class="fu">value</span>), <span class="dv">2</span>) <span class="op">||</span> <span class="st">'%'</span> <span class="kw">AS</span> govt_coverage_percentage</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> health_data h</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co">--Using data join to merge health and finance data</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> finance_data f </span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ON</span> h.iso3_code <span class="op">=</span> f.iso3_code </span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">AND</span> h.<span class="dt">year</span> <span class="op">=</span> f.<span class="dt">year</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> h.indicator_code <span class="op">=</span> <span class="st">'che_usd2023'</span> </span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> f.indicator_code <span class="op">=</span> <span class="st">'hf1_usd2023'</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> h.<span class="dt">year</span> <span class="op">=</span> <span class="dv">2023</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>  <span class="co">--ordering in ascending order</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> (f.<span class="fu">value</span> <span class="op">*</span> <span class="fl">1.0</span> <span class="op">/</span> h.<span class="fu">value</span>) <span class="kw">ASC</span></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">20</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Displaying records 1 - 10</caption>
+<colgroup>
+<col style="width: 14%">
+<col style="width: 5%">
+<col style="width: 24%">
+<col style="width: 26%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">country_name</th>
+<th style="text-align: right;">year</th>
+<th style="text-align: left;">total_che_usd_billion</th>
+<th style="text-align: left;">govt_scheme_usd_billion</th>
+<th style="text-align: left;">govt_coverage_percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Afghanistan</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">2.45 B</td>
+<td style="text-align: left;">0.04 B</td>
+<td style="text-align: left;">1.8%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">South Sudan</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">0.84 B</td>
+<td style="text-align: left;">0.04 B</td>
+<td style="text-align: left;">4.32%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Yemen</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">1.88 B</td>
+<td style="text-align: left;">0.2 B</td>
+<td style="text-align: left;">10.46%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bangladesh</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">9.17 B</td>
+<td style="text-align: left;">1.33 B</td>
+<td style="text-align: left;">14.48%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Armenia</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">2.26 B</td>
+<td style="text-align: left;">0.36 B</td>
+<td style="text-align: left;">15.87%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Liberia</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">0.57 B</td>
+<td style="text-align: left;">0.09 B</td>
+<td style="text-align: left;">16.59%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sierra Leone</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">0.3 B</td>
+<td style="text-align: left;">0.05 B</td>
+<td style="text-align: left;">16.64%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Turkmenistan</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">4.28 B</td>
+<td style="text-align: left;">0.74 B</td>
+<td style="text-align: left;">17.33%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Somalia</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">0.41 B</td>
+<td style="text-align: left;">0.07 B</td>
+<td style="text-align: left;">17.47%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nigeria</td>
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">15.23 B</td>
+<td style="text-align: left;">2.82 B</td>
+<td style="text-align: left;">18.53%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The results show that in several countries, the government covers only a small portion of total healthcare spending. For example, countries like Afghanistan and Yemen have very low government coverage percentages, indicating that most healthcare costs are likely paid out of pocket or through external sources. Many of the countries listed are lower income or developing nations, which may have limited public funding for healthcare. This suggests weaker healthcare financing systems and a higher financial burden on individuals. Low government coverage can also lead to reduced access to healthcare and increased inequality in health outcomes. Overall, the results highlight significant variation in how healthcare is financed globally, with some countries relying much less on government support compared to others. # Global Average government health spending from 2000 - 2023 #Output extracted to a dataframe for R visualisation</p>
+<div class="cell" data-output.var="avg_govt_spending_data">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">year</span>, </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">AVG</span>(<span class="fu">value</span>) <span class="kw">as</span> avg_govt_spend_numeric,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    printf(<span class="st">'$%,.2f'</span>, <span class="fu">AVG</span>(<span class="fu">value</span>)) <span class="kw">as</span> avg_govt_spending</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> finance_data</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> indicator_code <span class="op">=</span> <span class="st">'hf1_usd2023'</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="dt">year</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">year</span> <span class="kw">ASC</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="query-output" class="level1">
+<h1>Query output:</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">-- Global average health spending from 2000-2023</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Using Select, and GroupBy to calculate the average health spending in 2023 from finance_data</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">year</span>, </span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">AVG</span>(<span class="fu">value</span>) <span class="kw">as</span> avg_govt_spend_numeric,</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    printf(<span class="st">'$%,.2f'</span>, <span class="fu">AVG</span>(<span class="fu">value</span>)) <span class="kw">as</span> avg_govt_spending</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> finance_data</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> indicator_code <span class="op">=</span> <span class="st">'hf1_usd2023'</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="dt">year</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">year</span> <span class="kw">ASC</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Displaying records 1 - 10</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">year</th>
+<th style="text-align: right;">avg_govt_spend_numeric</th>
+<th style="text-align: left;">avg_govt_spending</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2000</td>
+<td style="text-align: right;">14238541888</td>
+<td style="text-align: left;">$14,238,541,888.12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2001</td>
+<td style="text-align: right;">15135758220</td>
+<td style="text-align: left;">$15,135,758,219.82</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2002</td>
+<td style="text-align: right;">15926209628</td>
+<td style="text-align: left;">$15,926,209,628.01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2003</td>
+<td style="text-align: right;">16540190868</td>
+<td style="text-align: left;">$16,540,190,867.91</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2004</td>
+<td style="text-align: right;">17242289697</td>
+<td style="text-align: left;">$17,242,289,696.80</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2005</td>
+<td style="text-align: right;">17917214969</td>
+<td style="text-align: left;">$17,917,214,968.51</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2006</td>
+<td style="text-align: right;">18796748519</td>
+<td style="text-align: left;">$18,796,748,519.09</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2007</td>
+<td style="text-align: right;">19515571472</td>
+<td style="text-align: left;">$19,515,571,471.77</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2008</td>
+<td style="text-align: right;">20488913792</td>
+<td style="text-align: left;">$20,488,913,791.58</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2009</td>
+<td style="text-align: right;">22057500173</td>
+<td style="text-align: left;">$22,057,500,173.19</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The results show a steady increase in average government health spending over time. For example, the average rises from about $14.2 billion in 2000 to over $22 billion by 2009. This indicates that governments globally have been increasing their investment in healthcare over the years. This upward trend suggests growing public sector involvement in healthcare financing, which may be due to expanding healthcare systems, population growth, or increased demand for services. It also reflects a shift toward stronger government support in funding healthcare.</p>
+<p>#Global Health Spending by Purpose: Change and Share (2019–2021): TOP 5</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- Global Helath Spending by Purpose: Change and Share (2019-2021): Top 5</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">-- Using the Total query to sum the health spending within the timeframe and using Select, GroupBy, and Order_By</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> totals <span class="kw">AS</span> (</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        spending_purpose,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2019</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="kw">AS</span> total_2019,</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> <span class="dt">year</span> <span class="op">=</span> <span class="dv">2021</span> <span class="cf">THEN</span> <span class="fu">value</span> <span class="cf">END</span>) <span class="kw">AS</span> total_2021</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> spending_data</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> indicator_code <span class="kw">LIKE</span> <span class="st">'%usd2023'</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> spending_purpose</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    spending_purpose <span class="kw">AS</span> <span class="ot">"Spending Purpose"</span>,</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ROUND</span>(total_2021 <span class="op">/</span> <span class="fl">1000000000.0</span>, <span class="dv">2</span>) <span class="kw">AS</span> <span class="ot">"Total Spending 2021 (USD Billions)"</span>,</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ROUND</span>(total_2019 <span class="op">/</span> <span class="fl">1000000000.0</span>, <span class="dv">2</span>) <span class="kw">AS</span> <span class="ot">"Total Spending 2019 (USD Billions)"</span>,</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ROUND</span>(</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>        (total_2021 <span class="op">-</span> total_2019) <span class="op">*</span> <span class="fl">100.0</span> <span class="op">/</span> total_2019, </span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>) <span class="op">||</span> <span class="st">'%'</span> <span class="kw">AS</span> <span class="ot">"Change (2019–2021)"</span>,</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ROUND</span>(</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>        total_2021 <span class="op">*</span> <span class="fl">100.0</span> <span class="op">/</span> <span class="fu">SUM</span>(total_2021) <span class="kw">OVER</span> (), </span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>) <span class="op">||</span> <span class="st">'%'</span> <span class="kw">AS</span> <span class="ot">"Share of Global Spending (2021)"</span></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> totals</span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> total_2021 <span class="kw">DESC</span></span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">5</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>5 records</caption>
+<colgroup>
+<col style="width: 32%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 10%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Spending Purpose</th>
+<th style="text-align: right;">Total Spending 2021 (USD Billions)</th>
+<th style="text-align: right;">Total Spending 2019 (USD Billions)</th>
+<th style="text-align: left;">Change (2019–2021)</th>
+<th style="text-align: left;">Share of Global Spending (2021)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Curative care</td>
+<td style="text-align: right;">5678.01</td>
+<td style="text-align: right;">5602.71</td>
+<td style="text-align: left;">1.34%</td>
+<td style="text-align: left;">60.03%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Medical goods (non-specified by function)</td>
+<td style="text-align: right;">1362.65</td>
+<td style="text-align: right;">1378.96</td>
+<td style="text-align: left;">-1.18%</td>
+<td style="text-align: left;">14.41%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Long-term care (health)</td>
+<td style="text-align: right;">936.74</td>
+<td style="text-align: right;">898.27</td>
+<td style="text-align: left;">4.28%</td>
+<td style="text-align: left;">9.9%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Preventive care</td>
+<td style="text-align: right;">634.62</td>
+<td style="text-align: right;">347.92</td>
+<td style="text-align: left;">82.4%</td>
+<td style="text-align: left;">6.71%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Governance, and health system and financing administration</td>
+<td style="text-align: right;">542.94</td>
+<td style="text-align: right;">528.28</td>
+<td style="text-align: left;">2.77%</td>
+<td style="text-align: left;">5.74%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The results show that curative care dominates global health spending, combined across all countries, accounting for about 60% of total spending in 2021, far more than any other category. This highlights that most healthcare resources are still focused on treatment rather than prevention. One of the most notable findings is the large increase in preventive care spending (about 82.4%), which likely reflects the global response to COVID-19, including investments in public health measures, testing, and vaccination efforts. In contrast, categories like medical goods saw a slight decline, while long-term care and administrative spending experienced moderate increases. Overall, the results suggest that while curative care remains the primary focus of healthcare systems, there was a significant shift toward prevention during the pandemic, indicating changing priorities in response to global health challenges.</p>
+<p>#This analysis shows the proportion of total health spending allocated to curative care across countries, helping identify how much each country prioritizes treatment-based healthcare relative to overall expenditure.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">-- the proportion of total health spending allocated to curative care across countries, helping identify how much each country  prioritizes treatment-based healthcare relative to overall expenditure.</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Using Select, Join, GroupBy, and Order</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">-- -------------------------------------------------------------------------</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    s.country_name <span class="kw">AS</span> <span class="ot">"Country"</span>,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    s.<span class="dt">year</span> <span class="kw">AS</span> <span class="ot">"Year"</span>,</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ROUND</span>(s.<span class="fu">value</span> <span class="op">/</span> <span class="fl">1000000000.0</span>, <span class="dv">2</span>) <span class="kw">AS</span> <span class="ot">"Curative Spending (USD Billions)"</span>,</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ROUND</span>(h.<span class="fu">value</span> <span class="op">/</span> <span class="fl">1000000000.0</span>, <span class="dv">2</span>) <span class="kw">AS</span> <span class="ot">"Total Health Spending (USD Billions)"</span>,</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ROUND</span>((s.<span class="fu">value</span> <span class="op">*</span> <span class="fl">100.0</span> <span class="op">/</span> h.<span class="fu">value</span>), <span class="dv">2</span>) <span class="op">||</span> <span class="st">'%'</span> <span class="kw">AS</span> <span class="ot">"Curative Share (%)"</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> spending_data s</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> health_data h </span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ON</span> s.iso3_code <span class="op">=</span> h.iso3_code </span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">AND</span> s.<span class="dt">year</span> <span class="op">=</span> h.<span class="dt">year</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> s.spending_purpose <span class="op">=</span> <span class="st">'Curative care'</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> s.indicator_code <span class="op">=</span> <span class="st">'hc1_usd2023'</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> h.indicator_code <span class="op">=</span> <span class="st">'che_usd2023'</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> s.<span class="dt">year</span> <span class="op">=</span> <span class="dv">2021</span></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> (s.<span class="fu">value</span> <span class="op">*</span> <span class="fl">1.0</span> <span class="op">/</span> h.<span class="fu">value</span>) <span class="kw">DESC</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Displaying records 1 - 10</caption>
+<colgroup>
+<col style="width: 37%">
+<col style="width: 3%">
+<col style="width: 21%">
+<col style="width: 24%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Country</th>
+<th style="text-align: right;">Year</th>
+<th style="text-align: right;">Curative Spending (USD Billions)</th>
+<th style="text-align: right;">Total Health Spending (USD Billions)</th>
+<th style="text-align: left;">Curative Share (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">China</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">657.43</td>
+<td style="text-align: right;">883.77</td>
+<td style="text-align: left;">74.39%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Costa Rica</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">4.46</td>
+<td style="text-align: right;">5.99</td>
+<td style="text-align: left;">74.39%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gambia</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: left;">72.91%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">occupied Palestinian territory, including east Jerusalem</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">1.32</td>
+<td style="text-align: right;">1.85</td>
+<td style="text-align: left;">71.26%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sierra Leone</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">0.21</td>
+<td style="text-align: right;">0.29</td>
+<td style="text-align: left;">70.88%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Uruguay</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">4.68</td>
+<td style="text-align: right;">6.61</td>
+<td style="text-align: left;">70.81%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kazakhstan</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">6.47</td>
+<td style="text-align: right;">9.50</td>
+<td style="text-align: left;">68.13%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Israel</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">24.77</td>
+<td style="text-align: right;">37.11</td>
+<td style="text-align: left;">66.75%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Malaysia</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">10.35</td>
+<td style="text-align: right;">15.51</td>
+<td style="text-align: left;">66.73%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">United States of America</td>
+<td style="text-align: right;">2021</td>
+<td style="text-align: right;">3020.45</td>
+<td style="text-align: right;">4560.54</td>
+<td style="text-align: left;">66.23%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The results show that a large portion of healthcare spending in many countries is focused on curative care. For example, countries like China and Costa Rica allocate around 74% of their total health spending to treatment, while even countries like the United States still spend over 66% on curative care. This indicates that most healthcare systems are heavily focused on treating illnesses rather than preventing them. While treatment is essential, such high percentages suggest that preventive care and other health services may receive relatively less attention. Overall, the results highlight a global pattern where curative care dominates healthcare spending, reinforcing the idea that many countries prioritize treatment-based systems over preventive approaches.</p>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">—————————————————————————</h3>
+</section>
+</section>
+<section id="creating-data-visualizations" class="level1">
+<h1>Creating data visualizations</h1>
+<p>#Visualization of global trend in health spending by the government from 2000-2023</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a line chart</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(avg_govt_spending_data, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_govt_spend_numeric)) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"#2c3e50"</span>, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span> </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#e74c3c"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>(<span class="at">scale_cut =</span> <span class="fu">cut_short_scale</span>())) <span class="sc">+</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">"Global Trend: Government Health Spending (2000-2023)"</span>,</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">subtitle =</span> <span class="st">"Average expenditure per country in constant 2023 US Dollars"</span>,</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="st">"Average Spending (USD)"</span>,</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"Source: Data queried from DuckDB (finance_data table )"</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Project_2_Template--2-_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This line graph shows the trend in average government health spending per country from 2000 to 2023, measured in billions of USD. Overall, there is a clear upward trend, with spending increasing from around $14 billion in 2000 to over $40 billion by 2023. The steady rise suggests that governments have been consistently investing more in healthcare over time. There are also noticeable jumps around 2013–2015 and again around 2020, likely reflecting increased demand for healthcare and the global response to COVID-19</p>
+<p>#Mapping (2019-2022):</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"countrycode"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Installing package into '/cloud/lib/x86_64-pc-linux-gnu-library/4.5'
+(as 'lib' is unspecified)</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnaturalearth)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Linking to GEOS 3.12.1, GDAL 3.8.4, PROJ 9.4.0; sf_use_s2() is TRUE</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(countrycode)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a map that shows the global change in Prevention Spending after Covid-19</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>map_df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">pct_change =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">"%"</span>, <span class="st">""</span>, <span class="st">`</span><span class="at">Change in Prevention Spending (2019–2022, %)</span><span class="st">`</span>)),</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">trend =</span> <span class="st">`</span><span class="at">Trend (Post-COVID)</span><span class="st">`</span>,</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">iso3_code =</span> <span class="fu">countrycode</span>(Country, <span class="st">"country.name"</span>, <span class="st">"iso3c"</span>)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">"medium"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>world_map <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(map_df, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"iso_a3"</span> <span class="ot">=</span> <span class="st">"iso3_code"</span>))</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(world_map) <span class="sc">+</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> trend), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">linewidth =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Increased"</span> <span class="ot">=</span> <span class="st">"#2ecc71"</span>,</span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Decreased"</span> <span class="ot">=</span> <span class="st">"#e74c3c"</span>,</span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>      <span class="st">"No Change"</span> <span class="ot">=</span> <span class="st">"#f1c40f"</span></span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">na.value =</span> <span class="st">"lightgrey"</span></span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Global Change in Prevention Spending After COVID-19"</span>,</span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Green = Increased | Red = Decreased | Grey = No Data"</span>,</span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Trend"</span></span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Project_2_Template--2-_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This map visualizes how prevention healthcare spending changed across countries from 2019 to 2022. Most countries are shown in green, indicating that they increased their investment in prevention after COVID-19, suggesting a global shift toward strengthening public health systems. A smaller number of countries are shown in red, meaning their prevention spending decreased, possibly due to economic constraints or a focus on treatment instead. The grey areas represent countries with missing or unavailable data, so they are not included in the analysis. Overall, the map highlights a clear global trend toward increased emphasis on preventive healthcare following the pandemic, although the change is not uniform across all regions.</p>
+<section id="section-4" class="level3">
+<h3 class="anchored" data-anchor-id="section-4">—————————————————————————</h3>
+</section>
+</section>
+<section id="sources" class="level1">
+<h1>Sources</h1>
+<ul>
+<li>Dataset from: https://github.com/rfordatascience/tidytuesday/tree/main/data/2026/2026-04-21</li>
+</ul>
+<section id="section-5" class="level3">
+<h3 class="anchored" data-anchor-id="section-5">—————————————————————————</h3>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2026 Nadika Sharma · Built with <a href="https://quarto.org">Quarto</a> · <a href="https://github.com/nadikasharma/nadikasharma.github.io">GitHub Repo</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

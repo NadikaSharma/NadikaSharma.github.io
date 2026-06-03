@@ -1,0 +1,562 @@
+---
+
+title: "Comparative Analysis of Global Health Financing and Spending Over Time"
+format: html
+author: "Group Members: Sabin Ku Shah & Nadika Sharma"
+---
+
+
+```{r setup}
+#| message: false
+#| warning: false
+#| include: false
+
+install.packages("DBI")
+library(tidyverse)
+library(DBI)
+library(duckdb)
+library(RMariaDB)
+library(mdsr)
+library(scales)
+library(ggplot2)
+```
+
+### ---------------------------------------------------------------------------
+# Accessing data
+
+
+
+
+### ---------------------------------------------------------------------------
+# Designing the database
+
+
+Relational Schema:    
+    
+                         country
+             ---------------------------------
+             iso3_code (PRIMARY KEY)
+             country_name
+                       |
+                       |
+         -----------------------------------
+         |                 |               |
+         |                 |               |
+    health_fact      finance_fact    spending_fact
+
+    iso3_code(FK)    iso3_code(FK)   iso3_code(FK)
+    year             year            year
+    indicator_code   indicator_code  indicator_code
+    expenditure_type financing_scheme spending_purpose
+    value            value           value
+    unit             unit            unit
+
+```{r}
+### ---------------------------------------------------------------------------
+# DATABASE CREATION
+# Create DuckDB database connection
+# ---------------------------------------------------------------------------
+
+con_snl <- dbConnect(
+  duckdb::duckdb(),
+  dbdir = "health_finances"
+)
+```
+
+```{sql, connection = con_snl}
+
+USE main;
+
+DROP TABLE IF EXISTS health_data;
+DROP TABLE IF EXISTS finance_data;
+DROP TABLE IF EXISTS spending_data;
+DROP TABLE IF EXISTS finance_fact;
+DROP TABLE IF EXISTS health_fact;
+DROP TABLE IF EXISTS spending_fact;
+DROP TABLE IF EXISTS country;
+
+```
+
+
+
+```{sql, connection = con_snl}
+-- -------------------------------------------------------------------------
+-- Create Health Data Table
+-- -------------------------------------------------------------------------
+
+
+CREATE TABLE health_data (
+
+    country_name VARCHAR,
+    iso3_code VARCHAR,
+    year INTEGER,
+    indicator_code VARCHAR,
+    expenditure_type VARCHAR,
+    value DOUBLE,
+    unit VARCHAR
+
+);
+
+```
+
+```{sql, connection = con_snl}
+-- -------------------------------------------------------------------------
+-- Create Finance Data Table
+-- -------------------------------------------------------------------------
+
+CREATE TABLE finance_data (
+
+    country_name VARCHAR,
+    iso3_code VARCHAR,
+    year INTEGER,
+    indicator_code VARCHAR,
+    financing_scheme VARCHAR,
+    value DOUBLE,
+    unit VARCHAR
+
+);
+```
+
+
+```{sql, connection = con_snl}
+-- -------------------------------------------------------------------------
+-- Create Spending Data Table
+-- -------------------------------------------------------------------------
+
+
+CREATE TABLE spending_data (
+
+    country_name VARCHAR,
+    iso3_code VARCHAR,
+    year INTEGER,
+    indicator_code VARCHAR,
+    spending_purpose VARCHAR,
+    value DOUBLE,
+    unit VARCHAR
+
+);
+
+```
+
+```{sql, connection = con_snl}
+
+-- -------------------------------------------------------------------------
+-- Import CSV Data into Tables
+-- -------------------------------------------------------------------------
+
+COPY health_data
+FROM 'health_spending.csv'
+(
+    FORMAT CSV,
+    HEADER TRUE,
+    DELIMITER ',',
+    QUOTE '"'
+);
+```
+
+```{sql, connection = con_snl}
+
+COPY finance_data
+FROM 'financing_schemes.csv'
+(
+    FORMAT CSV,
+    HEADER TRUE,
+    DELIMITER ',',
+    QUOTE '"'
+);
+
+```
+
+```{sql connection = con_snl}
+COPY spending_data
+FROM 'spending_purpose.csv'
+(
+    FORMAT CSV,
+    HEADER TRUE,
+    DELIMITER ',',
+    QUOTE '"'
+);
+```
+
+
+
+```{sql, connection = con_snl}
+-- -------------------------------------------------------------------------
+-- DATABASE VERIFICATION
+-- Confirm tables were created successfully
+-- -------------------------------------------------------------------------
+
+SHOW TABLES;
+```
+
+
+
+### ---------------------------------------------------------------------------
+# Querying data using SQL
+#Analyzes if countries shifted focus toward prevention post-2020
+#hc6_che is code for preventive care
+```{sql, connection=con_snl}
+
+-- -------------------------------------------------------------------------
+-- Analyzes if countries shifted focus toward prevention post-2020
+-- Selecting, and Grouping by using the spending_data table
+-- -------------------------------------------------------------------------
+SELECT 
+    country_name AS "Country",
+
+    MAX(CASE WHEN year = 2019 THEN value END) AS "Prevention Spending (2019 - Pre-COVID)",
+    MAX(CASE WHEN year = 2020 THEN value END) AS "Prevention Spending (2020)",
+    MAX(CASE WHEN year = 2021 THEN value END) AS "Prevention Spending (2021)",
+    MAX(CASE WHEN year = 2022 THEN value END) AS "Prevention Spending (2022)",
+
+    ROUND(
+        (
+            MAX(CASE WHEN year = 2022 THEN value END) - 
+            MAX(CASE WHEN year = 2019 THEN value END)
+        ) * 100.0 / 
+        MAX(CASE WHEN year = 2019 THEN value END),
+    2) || '%' AS "Change in Prevention Spending (2019–2022, %)",
+
+    CASE 
+        WHEN MAX(CASE WHEN year = 2022 THEN value END) > 
+             MAX(CASE WHEN year = 2019 THEN value END)
+        THEN 'Increased'
+        ELSE 'Decreased'
+    END AS "Trend (Post-COVID)"
+
+FROM spending_data
+WHERE indicator_code = 'hc6_che'
+GROUP BY country_name
+HAVING 
+    MAX(CASE WHEN year = 2019 THEN value END) IS NOT NULL
+    AND MAX(CASE WHEN year = 2022 THEN value END) IS NOT NULL;
+```
+The results show how prevention spending changed across countries before and after COVID-19. Overall, most countries experienced an increase in prevention spending between 2019 and 2022. For example, countries like Armenia and Denmark show significant increases, suggesting a stronger focus on preventive healthcare following the pandemic. In contrast, a few countries, such as Afghanistan and Hungary, show a decrease in spending, indicating that not all countries shifted priorities in the same way. The percentage change column is especially useful because it allows for comparison across countries regardless of their original spending levels.
+
+#turning into database for visualization: 
+```{sql, connection=con_snl, output.var = "df"}
+SELECT 
+    country_name AS "Country",
+
+    MAX(CASE WHEN year = 2019 THEN value END) AS "Prevention Spending (2019 - Pre-COVID)",
+    MAX(CASE WHEN year = 2020 THEN value END) AS "Prevention Spending (2020)",
+    MAX(CASE WHEN year = 2021 THEN value END) AS "Prevention Spending (2021)",
+    MAX(CASE WHEN year = 2022 THEN value END) AS "Prevention Spending (2022)",
+
+    ROUND(
+        (
+            MAX(CASE WHEN year = 2022 THEN value END) - 
+            MAX(CASE WHEN year = 2019 THEN value END)
+        ) * 100.0 / 
+        MAX(CASE WHEN year = 2019 THEN value END),
+    2) || '%' AS "Change in Prevention Spending (2019–2022, %)",
+
+    CASE 
+        WHEN MAX(CASE WHEN year = 2022 THEN value END) > 
+             MAX(CASE WHEN year = 2019 THEN value END)
+        THEN 'Increased'
+        ELSE 'Decreased'
+    END AS "Trend (Post-COVID)"
+
+FROM spending_data
+WHERE indicator_code = 'hc6_che'
+GROUP BY country_name
+HAVING 
+    MAX(CASE WHEN year = 2019 THEN value END) IS NOT NULL
+    AND MAX(CASE WHEN year = 2022 THEN value END) IS NOT NULL;
+```
+
+# Yearly Global Average Out of Pocket Spending (OOPS) in Percentage:
+```{sql connection = con_snl}
+
+-- -------------------------------------------------------------------------
+-- Calculating the Yearly Out of Pocket Spending (OOPS) in Percentage
+-- Selecting, Calculating the average percentage, and Grouping by using the finance_data table
+-- -------------------------------------------------------------------------
+SELECT year, AVG(value) as avg_oops_percent
+FROM finance_data
+WHERE indicator_code = 'hf3_che'
+GROUP BY year
+ORDER BY year;
+```
+The results show a gradual decline in out-of-pocket healthcare spending as a percentage of total health expenditure over time. For example, the average decreases from around 36.9% in 2000 to about 33.3% by 2009. This suggests that, globally, individuals are paying a smaller share of healthcare costs directly out of pocket over time.
+This trend could indicate improvements in financial protection, such as increased government spending, insurance coverage, or public healthcare access. The data suggests a slow but consistent shift toward reducing the financial burden on individuals for healthcare expenses.
+
+# Top 10 countries with the highest external Health expenditure in 2023 (Countries dependent on external aid):
+
+```{sql connection = con_snl}
+
+-- -------------------------------------------------------------------------
+-- Obtaining the Top 10 countries with the highest external Health expenditure in 2023
+-- Selecting country_name, calculating the ext_percentage value for the year 2023, and arranging in descending order
+-- -------------------------------------------------------------------------
+SELECT country_name, value as ext_percent
+FROM health_data
+WHERE indicator_code = 'ext_che' AND year = 2023
+ORDER BY value DESC
+LIMIT 10;
+```
+The results show that several countries rely heavily on external funding for their healthcare systems. For example, countries like Micronesia, Malawi, and South Sudan have more than half of their health expenditure coming from external sources. This indicates a high level of dependence on international aid and external support.
+Most of the countries in the top 10 are developing or low-income nations, suggesting that limited domestic resources make them more reliant on foreign funding for healthcare. While external aid can support essential services, high dependence may also indicate vulnerability, as these systems could be affected if external funding decreases.
+
+# Comparing portion covered by Government Schemes in total health spending in various countries in 2023:
+
+```{sql, connection=con_snl}
+
+-- -------------------------------------------------------------------------
+-- Comparing portion covered by Government Schemes in total health spending in various countries in 2023
+-- -------------------------------------------------------------------------
+
+WITH trend_data AS (
+--Selecting conutry name--
+    SELECT 
+        country_name,
+        --Using when case to filter values--
+        CASE 
+            WHEN MAX(CASE WHEN year = 2022 THEN value END) > 
+                 MAX(CASE WHEN year = 2019 THEN value END)
+            THEN 'Increased'
+            WHEN MAX(CASE WHEN year = 2022 THEN value END) < 
+                 MAX(CASE WHEN year = 2019 THEN value END)
+            THEN 'Decreased'
+            ELSE 'No Change'
+        END AS trend
+    FROM spending_data
+    WHERE indicator_code = 'hc6_che'
+    GROUP BY country_name
+    HAVING 
+        MAX(CASE WHEN year = 2019 THEN value END) IS NOT NULL
+        AND MAX(CASE WHEN year = 2022 THEN value END) IS NOT NULL
+)
+
+--Select and Group_by to calculate the percentage covered by government for health spending--
+
+SELECT 
+    trend AS "Trend (Post-COVID)",
+    COUNT(*) AS "Number of Countries",
+    ROUND(
+        COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (), 
+    2) || '%' AS "Percentage of Countries"
+FROM trend_data
+GROUP BY trend;
+```
+The results show that a large majority of countries (about 80.56%) increased their prevention spending after COVID-19, while only around 19.44% experienced a decrease. This indicates a clear global trend toward prioritizing preventive healthcare in response to the pandemic.
+The countries that showed a decline in prevention spending could be influenced by several factors. Some governments may have shifted their focus toward immediate treatment and recovery (curative care) rather than prevention during the pandemic. Others may have faced economic constraints, limited budgets, or reduced external funding, which affected their ability to invest in preventive measures. Additionally, in some cases, a decline could be due to already high pre-COVID spending levels, making further increases less significant.
+
+
+#The share of healthcare spending funded by governments for each country in 2023:
+```{sql, connection = con_snl}
+-- -------------------------------------------------------------------------
+-- share of healthcare spending funded by governments for each country in 2023
+-- -------------------------------------------------------------------------
+
+SELECT 
+    h.country_name, 
+    h.year, 
+
+    ROUND(h.value / 1000000000.0, 2) || ' B' AS total_che_usd_billion, 
+    ROUND(f.value / 1000000000.0, 2) || ' B' AS govt_scheme_usd_billion,
+
+    ROUND((f.value * 100.0 / h.value), 2) || '%' AS govt_coverage_percentage
+
+FROM health_data h
+--Using data join to merge health and finance data
+JOIN finance_data f 
+    ON h.iso3_code = f.iso3_code 
+    AND h.year = f.year
+
+WHERE h.indicator_code = 'che_usd2023' 
+  AND f.indicator_code = 'hf1_usd2023'
+  AND h.year = 2023
+  
+  --ordering in ascending order
+
+ORDER BY (f.value * 1.0 / h.value) ASC
+LIMIT 20;
+```
+The results show that in several countries, the government covers only a small portion of total healthcare spending. For example, countries like Afghanistan and Yemen have very low government coverage percentages, indicating that most healthcare costs are likely paid out of pocket or through external sources.
+Many of the countries listed are lower income or developing nations, which may have limited public funding for healthcare. This suggests weaker healthcare financing systems and a higher financial burden on individuals. Low government coverage can also lead to reduced access to healthcare and increased inequality in health outcomes.
+Overall, the results highlight significant variation in how healthcare is financed globally, with some countries relying much less on government support compared to others.
+# Global Average government health spending from 2000 - 2023
+#Output extracted to a dataframe for R visualisation
+
+```{sql connection = con_snl, output.var = "avg_govt_spending_data"}
+
+
+SELECT 
+    year, 
+    AVG(value) as avg_govt_spend_numeric,
+    printf('$%,.2f', AVG(value)) as avg_govt_spending
+FROM finance_data
+WHERE indicator_code = 'hf1_usd2023'
+GROUP BY year
+ORDER BY year ASC;
+```
+
+# Query output:
+```{sql connection = con_snl}
+
+-- -------------------------------------------------------------------------
+-- Global average health spending from 2000-2023
+-- Using Select, and GroupBy to calculate the average health spending in 2023 from finance_data
+-- -------------------------------------------------------------------------
+SELECT 
+    year, 
+    AVG(value) as avg_govt_spend_numeric,
+    printf('$%,.2f', AVG(value)) as avg_govt_spending
+FROM finance_data
+WHERE indicator_code = 'hf1_usd2023'
+GROUP BY year
+ORDER BY year ASC;
+```
+The results show a steady increase in average government health spending over time. For example, the average rises from about $14.2 billion in 2000 to over $22 billion by 2009. This indicates that governments globally have been increasing their investment in healthcare over the years.
+This upward trend suggests growing public sector involvement in healthcare financing, which may be due to expanding healthcare systems, population growth, or increased demand for services. It also reflects a shift toward stronger government support in funding healthcare.
+
+#Global Health Spending by Purpose: Change and Share (2019–2021): TOP 5 
+
+```{sql, connection=con_snl}
+-- -------------------------------------------------------------------------
+-- Global Helath Spending by Purpose: Change and Share (2019-2021): Top 5
+-- Using the Total query to sum the health spending within the timeframe and using Select, GroupBy, and Order_By
+-- -------------------------------------------------------------------------
+WITH totals AS (
+    SELECT 
+        spending_purpose,
+        SUM(CASE WHEN year = 2019 THEN value END) AS total_2019,
+        SUM(CASE WHEN year = 2021 THEN value END) AS total_2021
+    FROM spending_data
+    WHERE indicator_code LIKE '%usd2023'
+    GROUP BY spending_purpose
+)
+
+SELECT 
+    spending_purpose AS "Spending Purpose",
+
+    ROUND(total_2021 / 1000000000.0, 2) AS "Total Spending 2021 (USD Billions)",
+    ROUND(total_2019 / 1000000000.0, 2) AS "Total Spending 2019 (USD Billions)",
+    
+    ROUND(
+        (total_2021 - total_2019) * 100.0 / total_2019, 
+    2) || '%' AS "Change (2019–2021)",
+
+    ROUND(
+        total_2021 * 100.0 / SUM(total_2021) OVER (), 
+    2) || '%' AS "Share of Global Spending (2021)"
+
+FROM totals
+ORDER BY total_2021 DESC
+LIMIT 5;
+```
+
+The results show that curative care dominates global health spending, combined across all countries, accounting for about 60% of total spending in 2021, far more than any other category. This highlights that most healthcare resources are still focused on treatment rather than prevention.
+One of the most notable findings is the large increase in preventive care spending (about 82.4%), which likely reflects the global response to COVID-19, including investments in public health measures, testing, and vaccination efforts. In contrast, categories like medical goods saw a slight decline, while long-term care and administrative spending experienced moderate increases.
+Overall, the results suggest that while curative care remains the primary focus of healthcare systems, there was a significant shift toward prevention during the pandemic, indicating changing priorities in response to global health challenges.
+
+#This analysis shows the proportion of total health spending allocated to curative care across countries, helping identify how much each country prioritizes treatment-based healthcare relative to overall expenditure.
+```{sql, connection=con_snl}
+
+-- -------------------------------------------------------------------------
+-- the proportion of total health spending allocated to curative care across countries, helping identify how much each country  prioritizes treatment-based healthcare relative to overall expenditure.
+-- Using Select, Join, GroupBy, and Order
+-- -------------------------------------------------------------------------
+SELECT 
+    s.country_name AS "Country",
+    s.year AS "Year",
+
+    ROUND(s.value / 1000000000.0, 2) AS "Curative Spending (USD Billions)",
+    ROUND(h.value / 1000000000.0, 2) AS "Total Health Spending (USD Billions)",
+
+    ROUND((s.value * 100.0 / h.value), 2) || '%' AS "Curative Share (%)"
+    FROM spending_data s
+JOIN health_data h 
+    ON s.iso3_code = h.iso3_code 
+    AND s.year = h.year
+
+WHERE s.spending_purpose = 'Curative care'
+  AND s.indicator_code = 'hc1_usd2023'
+  AND h.indicator_code = 'che_usd2023'
+  AND s.year = 2021
+
+ORDER BY (s.value * 1.0 / h.value) DESC;
+```
+The results show that a large portion of healthcare spending in many countries is focused on curative care. For example, countries like China and Costa Rica allocate around 74% of their total health spending to treatment, while even countries like the United States still spend over 66% on curative care.
+This indicates that most healthcare systems are heavily focused on treating illnesses rather than preventing them. While treatment is essential, such high percentages suggest that preventive care and other health services may receive relatively less attention.
+Overall, the results highlight a global pattern where curative care dominates healthcare spending, reinforcing the idea that many countries prioritize treatment-based systems over preventive approaches.
+
+### ---------------------------------------------------------------------------
+# Creating data visualizations
+
+#Visualization of global trend in health spending by the government from 2000-2023   
+```{r}
+# Creating a line chart
+ggplot(avg_govt_spending_data, aes(x = year, y = avg_govt_spend_numeric)) +
+    geom_line(color = "#2c3e50", linewidth = 1.2) + 
+    geom_point(color = "#e74c3c", size = 2) +
+    scale_y_continuous(labels = label_dollar(scale_cut = cut_short_scale())) +
+    labs(
+      title = "Global Trend: Government Health Spending (2000-2023)",
+      subtitle = "Average expenditure per country in constant 2023 US Dollars",
+      x = "Year",
+      y = "Average Spending (USD)",
+      caption = "Source: Data queried from DuckDB (finance_data table )"
+    ) +
+    theme_minimal() +
+    theme(
+      plot.title = element_text(face = "bold", size = 14),
+      panel.grid.minor = element_blank()
+    )
+```
+
+This line graph shows the trend in average government health spending per country from 2000 to 2023, measured in billions of USD. Overall, there is a clear upward trend, with spending increasing from around $14 billion in 2000 to over $40 billion by 2023. The steady rise suggests that governments have been consistently investing more in healthcare over time. There are also noticeable jumps around 2013–2015 and again around 2020, likely reflecting increased demand for healthcare and the global response to COVID-19
+
+#Mapping (2019-2022): 
+```{r}
+install.packages("countrycode") 
+library(dplyr)
+library(rnaturalearth)
+library(sf)
+library(countrycode)
+
+# Creating a map that shows the global change in Prevention Spending after Covid-19
+
+map_df <- df %>%
+  mutate(
+    pct_change = as.numeric(gsub("%", "", `Change in Prevention Spending (2019–2022, %)`)),
+    trend = `Trend (Post-COVID)`,
+    iso3_code = countrycode(Country, "country.name", "iso3c")
+  )
+
+world <- ne_countries(scale = "medium", returnclass = "sf")
+
+world_map <- world %>%
+  left_join(map_df, by = c("iso_a3" = "iso3_code"))
+
+ggplot(world_map) +
+  geom_sf(aes(fill = trend), color = "white", linewidth = 0.1) +
+  scale_fill_manual(
+    values = c(
+      "Increased" = "#2ecc71",
+      "Decreased" = "#e74c3c",
+      "No Change" = "#f1c40f"
+    ),
+    na.value = "lightgrey"
+  ) +
+  labs(
+    title = "Global Change in Prevention Spending After COVID-19",
+    subtitle = "Green = Increased | Red = Decreased | Grey = No Data",
+    fill = "Trend"
+  ) +
+  theme_minimal()
+```
+
+This map visualizes how prevention healthcare spending changed across countries from 2019 to 2022. Most countries are shown in green, indicating that they increased their investment in prevention after COVID-19, suggesting a global shift toward strengthening public health systems. A smaller number of countries are shown in red, meaning their prevention spending decreased, possibly due to economic constraints or a focus on treatment instead. The grey areas represent countries with missing or unavailable data, so they are not included in the analysis. Overall, the map highlights a clear global trend toward increased emphasis on preventive healthcare following the pandemic, although the change is not uniform across all regions.
+
+
+### ---------------------------------------------------------------------------
+
+# Sources
+
+* Dataset from: https://github.com/rfordatascience/tidytuesday/tree/main/data/2026/2026-04-21 
+
+
+### ---------------------------------------------------------------------------
