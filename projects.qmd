@@ -82,6 +82,27 @@ page-layout: full
     <span class="btn-project">▶ View Poster</span>
   </div>
 
+  <!-- BEYOND CLASS DIVIDER -->
+  <h2 style="font-family:'Playfair Display',serif; font-size:1.6rem; 
+              color:#2c2118; margin:2.5rem 0 1.2rem 0;">
+    Beyond the Classroom
+  </h2>
+
+  <!-- INSURANCE ANALYSIS -->
+  <div class="project-card" 
+       onclick="window.open('projects/insurance-analysis/Exploratory_Analysis.html', '_blank')" 
+       style="cursor:pointer;">
+    <h3>What Factors Affect Medical Insurance Charges?</h3>
+    <span class="project-tag">R</span>
+    <span class="project-tag">Exploratory Analysis</span>
+    <span class="project-tag">Data Visualization</span>
+    <p>
+      An exploratory data analysis investigating how factors like smoking status, 
+      BMI, sex, and region influence medical insurance charges, using visualizations 
+      and summary statistics.
+    </p>
+    <span class="btn-project">▶ View Project</span>
+  </div>
+
 </div>
 ```
-
