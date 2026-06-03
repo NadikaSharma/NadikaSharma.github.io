@@ -50,5 +50,38 @@ page-layout: full
     <span class="btn-project">▶ View Project</span>
   </div>
 
+  <!-- RESUME MATCH PROJECT -->
+  <div class="project-card" 
+       onclick="window.open('projects/resume-match/README.html', '_blank')" 
+       style="cursor:pointer;">
+    <h3>Project 4 — resumeMatchR</h3>
+    <span class="project-tag">R</span>
+    <span class="project-tag">R Package</span>
+    <span class="project-tag">NLP</span>
+    <span class="project-tag">Team Project</span>
+    <p>
+      An R package that matches resumes to job descriptions using text similarity 
+      and natural language processing techniques to help job seekers tailor 
+      their applications.
+    </p>
+    <span class="btn-project">▶ View Project</span>
+  </div>
+
+  <!-- STATISTICAL IDEAS POSTER -->
+  <div class="project-card" 
+       onclick="window.open('projects/statistical-ideas/poster (1).html', '_blank')" 
+       style="cursor:pointer;">
+    <h3>Eight Statistical Ideas That Shaped the Last 50 Years</h3>
+    <span class="project-tag">Statistics</span>
+    <span class="project-tag">Data Visualization</span>
+    <span class="project-tag">Poster</span>
+    <p>
+      A visual poster exploring eight landmark statistical ideas from the last 
+      50 years and their lasting impact on modern data science and research.
+    </p>
+    <span class="btn-project">▶ View Poster</span>
+  </div>
+
 </div>
 ```
+
